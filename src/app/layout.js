@@ -7,16 +7,12 @@ export const metadata = {
   description: 'Polish investor tax tool for foreign profits',
 }
 
-const styles = {
-    minHeight: `calc(100vh - (100px + 100px))` // 100vh - (header + footer)
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex flex-col h-full">
       <Header />
-      <main style={ styles }>
+      <main className="flex-auto">
           { children }
       </main>
       <Footer />

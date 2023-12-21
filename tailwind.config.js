@@ -7,6 +7,9 @@ module.exports = {
     './src/app/**/*.{js,jsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true
+    },
     colors: {
       primary: '#7F72FE',
       blue: '#7F72FE'
@@ -19,7 +22,7 @@ module.exports = {
       // },
     },
     fontFamily: {
-      serif: ['Arial', 'serif'],
+      sans: ['Arial', 'sans-serif'],
     }
   },
   plugins: [
