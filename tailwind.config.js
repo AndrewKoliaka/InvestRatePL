@@ -12,7 +12,8 @@ module.exports = {
     },
     colors: {
       primary: '#7F72FE',
-      blue: '#7F72FE'
+      blue: '#7F72FE',
+      secondary: '#E4E1FF'
     },
     extend: {
       // backgroundImage: {
@@ -22,7 +23,7 @@ module.exports = {
       // },
     },
     fontFamily: {
-      sans: ['Arial', 'sans-serif'],
+      sans: ['Roboto', 'sans-serif'],
     }
   },
   plugins: [

@@ -1,0 +1,10 @@
+.calculator {
+
+}
+
+.dropdown > button {
+    display: flex;
+    justify-content: flex-start;
+    flex-grow: 1;
+    color: black;
+}
