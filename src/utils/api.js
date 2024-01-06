@@ -1,8 +1,10 @@
 export const currencyMap = {
     USD: 'usd',
-    EURO: 'euro',
+    EURO: 'eur',
     CAD: 'cad',
-    AUD: 'aud'
+    AUD: 'aud',
+    UAH: 'uah',
+    CHF: 'chf'
 };
 
 export default async function fetchRate(date = new Date(), currency = currencyMap.USD) {

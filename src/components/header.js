@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Dropdown, Navbar } from 'flowbite-react';
+import { useTranslation } from 'next-export-i18n';
 
 export default function () {
     return (

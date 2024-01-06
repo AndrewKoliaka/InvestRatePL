@@ -11,6 +11,15 @@ const offsetDayMap = {
     PREVIOUS: 'previous'
 };
 
+const currencyTranslationMap = {
+    [currencyMap.USD]: 'United States Dollar $',
+    [currencyMap.EURO]: 'Euro €',
+    [currencyMap.CAD]: 'Canadian Dollar C$',
+    [currencyMap.AUD]: 'Australian Dollar A$',
+    [currencyMap.CHF]: 'Swiss franc CHF',
+    [currencyMap.UAH]: 'Ukrainian hrivna UAH',
+}
+
 const datepickerTheme = {
     root: {
         input: {
@@ -69,18 +78,19 @@ export default function Calculator() {
                 <Datepicker theme={datepickerTheme} className="mt-2" defaultDate={ new Date() } maxDate={ new Date() } showTodayButton onSelectedDateChanged={ onChangeDate }/>
                 <div className="mt-6">Choose currency of your investment:</div>
                 <div className="dropdown flex bg-white rounded-md mt-2">
-                    <Dropdown label={ currency } className="flex flex-grow">
-                        <Dropdown.Item onClick={ () => onChangeCurrency(currencyMap.USD) }>United States Dollar $</Dropdown.Item>
-                        <Dropdown.Item onClick={ () => onChangeCurrency(currencyMap.EURO) }>Euro €</Dropdown.Item>
-                        <Dropdown.Item onClick={ () => onChangeCurrency(currencyMap.CAD) }>Canadian Dollar C$</Dropdown.Item>
-                        <Dropdown.Item onClick={ () => onChangeCurrency(currencyMap.AUD) }>Australian Dollar A$</Dropdown.Item>
+                    <Dropdown label={ currencyTranslationMap[currency] } className="flex flex-grow">
+                        {
+                            Object.keys(currencyMap).map(currencyKey => (
+                                <Dropdown.Item key={currencyKey} onClick={ () => onChangeCurrency(currencyMap[currencyKey]) }>{ currencyTranslationMap[currencyMap[currencyKey]] }</Dropdown.Item>
+                            ))
+                        }
                     </Dropdown>
                 </div>
 
                 <div className="mt-6">Choose day the rate should be calculated for:</div>
                 <div className="dropdown flex bg-white rounded-md mt-2 text-black">
-                    <Dropdown label={ offsetDay === offsetDayMap.ACTUAL ? 'Actual day' : 'Previous day' }>
-                        <Dropdown.Item onClick={ () => onChangeOffsetDay(offsetDayMap.PREVIOUS) }>Previous day</Dropdown.Item>
+                    <Dropdown label={ offsetDay === offsetDayMap.ACTUAL ? 'Actual day' : 'Previous working day' }>
+                        <Dropdown.Item onClick={ () => onChangeOffsetDay(offsetDayMap.PREVIOUS) }>Previous working day</Dropdown.Item>
                         <Dropdown.Item onClick={ () => onChangeOffsetDay(offsetDayMap.ACTUAL) }>Actual day</Dropdown.Item>
                     </Dropdown>
                 </div>
